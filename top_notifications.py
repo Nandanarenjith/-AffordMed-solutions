@@ -9,8 +9,7 @@ class Notification:
     id: str
     title: str
     weight: float
-    # ISO-8601 timestamp like "2026-05-06T10:30:00Z" or any datetime that datetime.fromisoformat can parse.
-    # If you already have age_in_hours, use the helper below.
+   
     timestamp: str
 
 
@@ -203,8 +202,6 @@ def main() -> None:
         ),
     ]
 
-    # tau_hours controls how fast old notifications lose priority.
-    # Larger tau -> slower decay (more emphasis on weight).
     tau_hours = 12.0
     top10 = top_n_notifications(sample_notifications, n=10, tau_hours=tau_hours, now=now)
 
